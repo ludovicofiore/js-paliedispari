@@ -4,54 +4,72 @@
 // Dichiariamo chi ha vinto.
 
 // chiedo all'utente se vincerà pari o dispari
-let inputWin = prompt("pari o dispari?");
+let inputWin = document.querySelector(".odd-even-select");
 
 // chiedo all'utente un numero da 1 a 5
-let inputNumber = parseInt(prompt("inserisci un numero da 1 a 5"));
+let inputNumber = document.querySelector(".user-number");
 
-console.log(inputNumber);
+// gestione click event
+const myButton = document.querySelector(".input-button");
 
-// richiamo funzione per numero random
-let pcNumber = randomNum(1, 5);
-console.log(pcNumber);
+myButton.addEventListener("click",
+    function() {
 
-// richiamo funzione per somma pari o dispari
+        // recupero valore pari o dispari
+        let inputWinValue = inputWin.value;
+        console.log(inputWinValue);
 
-let sumResult = sumOddEven();
-console.log(sumResult);
+        // recupero valore numero utente
+        let inputNumberValue = inputNumber.value;
+        console.log(inputNumberValue);
 
+        // richiamo funzione per numero random
+        let pcNumber = randomNum(1, 5);
+        
+        document.getElementById("pc-result").innerHTML = pcNumber;
 
-// dichiaro chi ha vinto
-
-if (inputWin === sumResult) {
-    console.log("hai vinto");
-
-} else {
-    console.log("hai perso");
-}
-
-
-
-
-// FUNZIONI
-
-// funzione numero random
-function randomNum (numMin, numMax) {
-
-    return Math.floor(Math.random() * (numMax - numMin +1)) + numMin;
-}
+        // richiamo funzione per somma pari o dispari
+        let sumResult = sumOddEven();
+        
+        document.getElementById("sum-result").innerHTML = sumResult;
 
 
-// funzione somma
-function sumOddEven () {
+        // dichiaro chi ha vinto
 
-    let sum = inputNumber + pcNumber;
+        if (inputWinValue === sumResult) {
+            document.getElementById("risultato").innerHTML = "hai vinto";
 
-    if (sum % 2 === 0) { //se pari
-        return "pari";
+        } else {
+            document.getElementById("risultato").innerHTML = "hai perso";
+        }
 
-    } else { //se dispari
-        return "dispari";
+
+        // FUNZIONI
+
+        // funzione numero random
+        function randomNum (numMin, numMax) {
+
+            return Math.floor(Math.random() * (numMax - numMin +1)) + numMin;
+        }
+
+
+        // funzione somma
+        function sumOddEven () {
+
+            let sum = inputNumberValue + pcNumber;
+
+            if (sum % 2 === 0) { //se pari
+                return "pari";
+
+            } else { //se dispari
+                return "dispari";
+            }
+        }
+
     }
-}
+)
+
+
+
+
 

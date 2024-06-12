@@ -3,6 +3,8 @@
 // Sommiamo i due numeri Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 // Dichiariamo chi ha vinto.
 
+// chiedo all'utente se vincerà pari o dispari
+let inputWin = prompt("pari o dispari?");
 
 // chiedo all'utente un numero da 1 a 5
 let inputNumber = parseInt(prompt("inserisci un numero da 1 a 5"));
@@ -20,6 +22,13 @@ console.log(sumResult);
 
 
 // dichiaro chi ha vinto
+
+if (inputWin === sumResult) {
+    console.log("hai vinto");
+
+} else {
+    console.log("hai perso");
+}
 
 
 

@@ -15,6 +15,9 @@ console.log(pcNumber);
 
 // richiamo funzione per somma pari o dispari
 
+let sumResult = sumOddEven();
+console.log(sumResult);
+
 
 // dichiaro chi ha vinto
 
@@ -31,5 +34,15 @@ function randomNum (numMin, numMax) {
 
 
 // funzione somma
+function sumOddEven () {
 
+    let sum = inputNumber + pcNumber;
+
+    if (sum % 2 === 0) { //se pari
+        return "pari";
+
+    } else { //se dispari
+        return "dispari";
+    }
+}
 

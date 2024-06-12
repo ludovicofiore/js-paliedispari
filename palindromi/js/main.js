@@ -2,28 +2,45 @@
 // Creare una funzione per capire se la parola inserita è palindroma
 
 // chiedo all'utente la parola
-let inputWord = prompt("inserisci la parola");
+let inputWord = document.querySelector(".user-word");
 
 
-// creo funzione 
-function checkPalindrome() {
+// aggiungo funzione click
 
-    // cambio l'ordine delle lettere (split scompone la stringa in lettere e le mette in un array, reverse cambia l'ordine delle lettere nell'array, join rimette insieme la stringa)
-    let reverseInput = inputWord.split('').reverse().join('');
-    console.log(reverseInput);
+const myButton = document.querySelector(".input-button");
 
-    if (reverseInput === inputWord) { //se palindromo
-        return "palindromo"
+myButton.addEventListener("click",
+    function() {
 
-    } else { //se non palindromo
-        return "non è un palindromo"
+        // recupero valore dell'input
+        let inputWordValue = inputWord.value;
+
+        // richiamo risultato funzione e output
+        let result = checkPalindrome();
+        console.log(result);
+
+        // porto output in pagina 
+        document.getElementById("risultato").innerHTML = result;
+
+        // FUNZIONI
+
+        function checkPalindrome() {
+
+            // cambio l'ordine delle lettere (split scompone la stringa in lettere e le mette in un array, reverse cambia l'ordine delle lettere nell'array, join rimette insieme la stringa)
+            let reverseInput = inputWordValue.split('').reverse().join('');
+            console.log(reverseInput);
+
+            if (reverseInput === inputWordValue) { //se palindromo
+                return "palindromo"
+
+            } else { //se non palindromo
+                return "non è un palindromo"
+            }
+        }
     }
-}
+)
 
 
-// richiamo risultato funzione e output
 
-let result = checkPalindrome();
-console.log(result);
 
 

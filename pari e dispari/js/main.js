@@ -20,7 +20,7 @@ myButton.addEventListener("click",
         console.log(inputWinValue);
 
         // recupero valore numero utente
-        let inputNumberValue = inputNumber.value;
+        let inputNumberValue = parseInt(inputNumber.value);
         console.log(inputNumberValue);
 
         // richiamo funzione per numero random
@@ -29,7 +29,7 @@ myButton.addEventListener("click",
         document.getElementById("pc-result").innerHTML = pcNumber;
 
         // richiamo funzione per somma pari o dispari
-        let sumResult = sumOddEven();
+        let sumResult = sumOddEven(inputNumberValue, pcNumber);
         
         document.getElementById("sum-result").innerHTML = sumResult;
 
@@ -44,32 +44,32 @@ myButton.addEventListener("click",
         }
 
 
-        // FUNZIONI
-
-        // funzione numero random
-        function randomNum (numMin, numMax) {
-
-            return Math.floor(Math.random() * (numMax - numMin +1)) + numMin;
-        }
-
-
-        // funzione somma
-        function sumOddEven () {
-
-            let sum = inputNumberValue + pcNumber;
-
-            if (sum % 2 === 0) { //se pari
-                return "pari";
-
-            } else { //se dispari
-                return "dispari";
-            }
-        }
-
     }
 )
 
 
+
+// FUNZIONI
+
+// funzione numero random
+function randomNum (numMin, numMax) {
+
+    return Math.floor(Math.random() * (numMax - numMin +1)) + numMin;
+}
+
+
+// funzione somma
+function sumOddEven (sumItemFirst, sumItemSecond) {
+
+    let sum = sumItemFirst + sumItemSecond;
+
+    if (sum % 2 === 0) { //se pari
+        return "pari";
+
+    } else { //se dispari
+        return "dispari";
+    }
+}
 
 
 

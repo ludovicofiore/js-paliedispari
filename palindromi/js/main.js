@@ -16,31 +16,31 @@ myButton.addEventListener("click",
         let inputWordValue = inputWord.value;
 
         // richiamo risultato funzione e output
-        let result = checkPalindrome();
+        let result = checkPalindrome(inputWordValue);
         console.log(result);
 
         // porto output in pagina 
         document.getElementById("risultato").innerHTML = result;
 
-        // FUNZIONI
-
-        function checkPalindrome() {
-
-            // cambio l'ordine delle lettere (split scompone la stringa in lettere e le mette in un array, reverse cambia l'ordine delle lettere nell'array, join rimette insieme la stringa)
-            let reverseInput = inputWordValue.split('').reverse().join('');
-            console.log(reverseInput);
-
-            if (reverseInput === inputWordValue) { //se palindromo
-                return "palindromo"
-
-            } else { //se non palindromo
-                return "non è un palindromo"
-            }
-        }
+        
     }
 )
 
 
 
 
+// FUNZIONI
 
+function checkPalindrome(string) {
+
+    // cambio l'ordine delle lettere (split scompone la stringa in lettere e le mette in un array, reverse cambia l'ordine delle lettere nell'array, join rimette insieme la stringa)
+    let reverseInput = string.split('').reverse().join('');
+    console.log(reverseInput);
+
+    if (reverseInput === string) { //se palindromo
+        return "palindromo"
+
+    } else { //se non palindromo
+        return "non è un palindromo"
+    }
+}
